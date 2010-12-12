@@ -8,7 +8,7 @@
 = Details =
 
 === attribute_get ===
-<span>* <font color="pink">attribute_get</font> (필드 하나 조회함.)</span>
+<font color="pink">attribute_get</font> (필드 하나 조회함.)
 
 DATA: lv_xxx TYPE wd_this->element_nodename-xxx.
 
@@ -22,3 +22,27 @@ zwd_util=>attribute_get(
 ).
 
 === attribute_set ===
+<font color="pink">attribute_set</font> (필드 하나에 값을 넣어줌.)
+
+DATA: lv_xxx TYPE wd_this->element_nodename-xxx.
+
+zwd_util=>attribute_set(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+     attrname = 'XXX' "attribute name
+     value = lv_xxx "attribute랑 같은 타입으로 선언된 변수
+).
+
+=== line_get ===
+<font color="pink">line_get</font> or <font color="pink">attributes_get</font> (라인 한줄 조회함.) -get_lead_selection을 대체할수 있음.
+
+DATA: ls_nodename TYPE wd_this->element_nodename.
+
+zwd_util=>attributes_get(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+   IMPORTING
+     value = ls_nodename
+).
