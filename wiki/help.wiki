@@ -2,7 +2,7 @@
 
 = Introduction =
 
-[WikiSyntax#attribute_get]
+[attribute_get]
 * attribute_get (필드 하나 조회함.)
 
 = Details =
