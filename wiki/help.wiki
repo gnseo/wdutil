@@ -1,0 +1,23 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+<a href="#attribute_get">* <font color="orange">attribute_get</font> (필드 하나 조회함.)</a>
+
+DATA: lv_xxx TYPE wd_this->element_nodename-xxx.
+
+
+= Details =
+
+<h4 id="attribute_get">* <font color="orange">attribute_get</font> (필드 하나 조회함.)</h4>
+
+DATA: lv_xxx TYPE wd_this->element_nodename-xxx.
+
+zwd_util=>attribute_get(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+     attrname = 'XXX' "attribute name
+   IMPORTING
+     value = lv_xxx "attribute랑 같은 타입으로 선언된 변수
+).
