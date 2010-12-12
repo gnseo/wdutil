@@ -3,67 +3,12 @@
 = Introduction =
 
 [help#attribute_get]
-* attribute_get (필드 하나 조회함.)
+(필드 하나 조회함.)
 
 = Details =
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
 
 === attribute_get ===
-* <font color="orange">attribute_get</font> (필드 하나 조회함.)
+<span>* <font color="pink">attribute_get</font> (필드 하나 조회함.)</span>
 
 DATA: lv_xxx TYPE wd_this->element_nodename-xxx.
 
@@ -75,3 +20,5 @@ zwd_util=>attribute_get(
    IMPORTING
      value = lv_xxx "attribute랑 같은 타입으로 선언된 변수
 ).
+
+=== attribute_set ===
