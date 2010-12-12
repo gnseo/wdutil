@@ -144,4 +144,97 @@ show_msg (메세지를 출력함.)
 *6  Cancel, Repeat, Ignore
 
 1. 한 문장을 popup으로 출력할때.
+<br/>
 http://wdutil.googlecode.com/files/XGbeXbSp4c.jpg
+<br/>
+  DATA: lv_msg TYPE string.
+  lv_msg = `첫 줄`.
+ 
+  zwd_util=>show_msg(
+      EXPORTING
+        cc = wd_comp_controller "component controller에서
+                                "호출할 경우
+                                "wd_this를 입력해줘야 함.
+        popup_btn_kind = 1
+        direct_msg_single = lv_msg
+        direct_msg_type = 'S'
+  ).
+
+2. 한 문장을 일반적인 방식으로 출력할때.
+<br/>
+http://wdutil.googlecode.com/files/XEaLlHGiOk.jpg
+<br/>
+  DATA: lv_msg TYPE string.
+  lv_msg = `첫 줄`.
+ 
+  zwd_util=>show_msg(
+      EXPORTING
+        cc = wd_comp_controller "component controller에서
+                                "호출할 경우
+                                "wd_this를 입력해줘야 함.
+        direct_msg_single = lv_msg
+        direct_msg_type = 'S'
+  ).
+
+3. 메시지클래스의 한 문장을 popup으로 출력할때.
+<br/>
+http://wdutil.googlecode.com/files/XXa2JpibOh.jpg
+<br/>
+  DATA: ls_msg TYPE symsg.
+  ls_msg-msgty = 'S'.
+  ls_msg-msgid = 'ZPM'.
+  ls_msg-msgno = '001'.
+  ls_msg-msgv1 = '하나'.
+  ls_msg-msgv2 = '둘'.
+  ls_msg-msgv3 = '셋'.
+ 
+  zwd_util=>show_msg(
+      EXPORTING
+        cc = wd_comp_controller "component controller에서
+                                "호출할 경우
+                                "wd_this를 입력해줘야 함.
+        popup_btn_kind = 1
+        t100_msg = ls_msg
+  ).
+
+4. 메시지클래스의 한 문장을 일반적인 방식으로 출력할때.
+<br/>
+http://wdutil.googlecode.com/files/XFdNQr0jWW.jpg
+<br/>
+  DATA: ls_msg TYPE symsg.
+  ls_msg-msgty = 'S'.
+  ls_msg-msgid = 'ZPM'.
+  ls_msg-msgno = '001'.
+  ls_msg-msgv1 = '하나'.
+  ls_msg-msgv2 = '둘'.
+  ls_msg-msgv3 = '셋'.
+ 
+  zwd_util=>show_msg(
+      EXPORTING
+        cc = wd_comp_controller "component controller에서
+                                "호출할 경우
+                                "wd_this를 입력해줘야 함.
+        t100_msg = ls_msg
+  ).
+
+5. 여러 문장을 popup으로 출력할때.
+<br/>
+http://wdutil.googlecode.com/files/XAEXORWMxP.jpg
+<br/>
+  DATA: lv_msg TYPE string.
+  DATA: lt_msg TYPE string_table.
+
+  lv_msg = `1. 첫 줄`.
+  APPEND lv_msg TO lt_msg.
+  lv_msg = `2. 둘째 줄`.
+  APPEND lv_msg TO lt_msg.
+
+  zwd_util=>show_msg(
+      EXPORTING
+        cc = wd_comp_controller "component controller에서
+                                "호출할 경우
+                                "wd_this를 입력해줘야 함.
+        popup_btn_kind = 1
+        direct_msg_multi = lt_msg
+        direct_msg_type = 'S'
+  ).
