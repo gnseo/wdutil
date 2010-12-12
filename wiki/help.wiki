@@ -4,10 +4,16 @@
 
 [help#attribute_get]
 (필드 하나 조회함.)
+<br/>
 [help#attribute_set]
 (필드 하나에 값을 넣어줌.)
+<br/>
 [help#line_get]
 (라인 한줄 조회함.) -get_lead_selection을 대체할수 있음.
+<br/>
+[help#line_set]
+(라인 한줄에한줄에 값을 넣어줌.)
+<br/>
 
 = Details =
 
@@ -50,3 +56,91 @@ zwd_util=>attributes_get(
    IMPORTING
      value = ls_nodename
 ).
+
+=== line_set ===
+<font color="#F52887">attributes_set</font> or <font color="#F52887">line_set</font> (라인 한줄에한줄에 값을 넣어줌.)
+
+DATA: ls_nodename TYPE wd_this->element_nodename.
+
+zwd_util=>attributes_set(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+     value = ls_nodename
+).
+
+=== table_get ===
+table_get (테이블값을 node에서 조회함.)
+
+DATA: lt_nodename TYPE wd_this->elements_nodename.
+
+zwd_util=>table_get(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+   IMPORTING
+     value = lt_nodename
+).
+
+=== table_set ===
+table_set (테이블값을 node에 넘겨줌.)
+
+DATA: lt_nodename TYPE wd_this->elements_nodename.
+
+zwd_util=>table_set(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+     value = lt_nodename
+).
+
+=== dropdownbykey_set ===
+dropdownbykey_set (dropdownbykey에 값을 넘겨줌.)
+
+DATA: lt_value_list TYPE wdy_key_value_list.
+
+zwd_util=>dropdownbykey_set(
+   EXPORTING
+     root = wd_context
+     nodename = wd_this->wdctx_nodename "node name
+     attrname = 'XXX'
+     value = lt_value_list
+).
+
+=== url_open ===
+url_open (다른 웹페이지를 새로운 창에서창에서 열고자 할때 사용됨.)
+
+data: lv_url TYPE string.
+lv_url = 'http://www.daum.net'.
+zwd_util=>url_open(
+   EXPORTING
+     cc = wd_comp_controller "component controller에서 호출할 경우
+                             "wd_this를 입력해줘야 함.
+     url = lv_url
+).
+
+=== wdevent_get ===
+wdevent_get (wdevent의 파라미터 값을 가져오기.)
+
+  DATA: lo_el TYPE REF TO if_wd_context_element."받아올 값의 type
+
+  zwd_util=>wdevent_get(
+     EXPORTING
+       event = wdevent
+       param_name = 'NEW_LEAD_SELECTION'
+     IMPORTING
+       value = lo_el
+  ).
+
+=== show_msg ===
+show_msg (메세지를 출력함.)
+
+▶ popup_btn_kind
+*1  OK
+*2  Close
+*3  Ok., Cancel
+*4  Yes, No
+*5  Yes, No, Cancel
+*6  Cancel, Repeat, Ignore
+
+1. 한 문장을 popup으로 출력할때.
