@@ -62,7 +62,8 @@
 <br/>
 
 
-===* <font color="orange">attribute_get</font> (필드 하나 조회함.)===
+=== attribute_get ===
+* <font color="orange">attribute_get</font> (필드 하나 조회함.)
 
 DATA: lv_xxx TYPE wd_this->element_nodename-xxx.
 
