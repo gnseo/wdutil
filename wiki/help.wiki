@@ -144,3 +144,4 @@ show_msg (메세지를 출력함.)
 *6  Cancel, Repeat, Ignore
 
 1. 한 문장을 popup으로 출력할때.
+http://wdutil.googlecode.com/files/XGbeXbSp4c.jpg
